@@ -29,6 +29,7 @@ import { TabPlaceholderModal } from './components/TabPlaceholderModal';
 import { NotificationModal } from './components/NotificationModal';
 import { AQIInfoModal } from './components/AQIInfoModal';
 import { HeroSection } from './components/environmental/HeroSection';
+import { CrisisPhotoGallery } from './components/environmental/CrisisPhotoGallery';
 import { CleanVsHazyComparison } from './components/environmental/CleanVsHazyComparison';
 import { RespiratorySystemVisual } from './components/environmental/RespiratorySystemVisual';
 import { HourlyTrendChart } from './components/environmental/HourlyTrendChart';
@@ -324,6 +325,11 @@ export function App() {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Field Crisis & Mitigation Photography Showcase Section */}
+              <div id="gallery-section" className="space-y-4 pt-6 border-t border-slate-200">
+                <CrisisPhotoGallery />
               </div>
 
               {/* Environmental Air Quality Section (Clean vs Hazy & 24h Trend) */}

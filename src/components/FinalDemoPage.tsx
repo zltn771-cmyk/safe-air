@@ -3,6 +3,7 @@ import { Play, ChevronLeft, ChevronRight, Monitor, MonitorOff, CheckCircle, XCir
 import { runScenario } from '../utils/scenarioRunner';
 import { generatePersonalRecommendation } from '../services/recommendationEngine';
 import { runAllEvidenceTests } from '../services/evidenceRunner';
+import { karhutlaHazeImg, personMaskImg, respiratoryHealthImg, indoorCleanAirImg } from '../config/environmentalImagesConfig';
 import type { ScenarioResult } from '../types/researchMode';
 
 /* ──────────────────── TYPES ──────────────────── */
@@ -118,6 +119,46 @@ export const FinalDemoPage: React.FC = () => {
       render: () => (
         <div className="space-y-4">
           <h2 className="text-xl font-black text-slate-800">Framing Masalah Penelitian</h2>
+
+          {/* Photographic Context Gallery in Step 1 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 text-white relative shadow-sm group">
+              <div className="h-36 sm:h-44 overflow-hidden relative">
+                <img
+                  src={karhutlaHazeImg}
+                  alt="Krisis Karhutla & Asap Gambut"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <span className="absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-rose-600/90 text-white border border-rose-400/30">
+                  Episode Karhutla Sumatra
+                </span>
+                <div className="absolute bottom-2 left-2.5 right-2.5">
+                  <span className="text-xs font-black text-amber-200 block">Konsentrasi PM2.5 Tinggi</span>
+                  <span className="text-[10px] text-slate-300">Asap gambut tidak larut hanya dengan embusan angin biasa</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 text-white relative shadow-sm group">
+              <div className="h-36 sm:h-44 overflow-hidden relative">
+                <img
+                  src={personMaskImg}
+                  alt="Warga Bermasker N95"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <span className="absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-600/90 text-white border border-emerald-400/30">
+                  Paparan Pada Populasi Manusia
+                </span>
+                <div className="absolute bottom-2 left-2.5 right-2.5">
+                  <span className="text-xs font-black text-emerald-200 block">Kebutuhan Proteksi Bertingkat</span>
+                  <span className="text-[10px] text-slate-300">Respirator N95 diperlukan saat kualitas udara masuk kategori berbahaya</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-5 space-y-3">
             <p className="text-sm text-slate-800 font-semibold leading-relaxed">
               Kualitas udara luar tidak dapat merepresentasikan risiko kesehatan perorangan secara seragam hanya dari angka konsentrasi PM2,5.
@@ -311,6 +352,45 @@ export const FinalDemoPage: React.FC = () => {
       render: () => (
         <div className="space-y-4">
           <h2 className="text-xl font-black text-slate-800">Panduan Proteksi yang Disesuaikan</h2>
+          {/* Visual Pillars for Recommendation: Lung Protection & Clean Room Safe Haven */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 text-white relative shadow-sm group">
+              <div className="h-32 sm:h-36 overflow-hidden relative">
+                <img
+                  src={respiratoryHealthImg}
+                  alt="Kesehatan Sistem Pernapasan"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <span className="absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-teal-600/90 text-white border border-teal-400/30">
+                  Proteksi Organ Target
+                </span>
+                <div className="absolute bottom-2 left-2.5 right-2.5">
+                  <span className="text-xs font-black text-teal-200 block">Menjaga Integritas Epitel Paru</span>
+                  <span className="text-[10px] text-slate-300">Menekan penetrasi PM2.5 ke bronkiolus dan alveoli</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-900 text-white relative shadow-sm group">
+              <div className="h-32 sm:h-36 overflow-hidden relative">
+                <img
+                  src={indoorCleanAirImg}
+                  alt="Ruang Bersih Terisolasi HEPA"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <span className="absolute top-2.5 left-2.5 text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-600/90 text-white border border-emerald-400/30">
+                  Mitigasi Domestik Utama
+                </span>
+                <div className="absolute bottom-2 left-2.5 right-2.5">
+                  <span className="text-xs font-black text-emerald-200 block">Sanctuary Ruang Bersih HEPA</span>
+                  <span className="text-[10px] text-slate-300">Reduksi konsentrasi PM2.5 dalam ruangan hingga &gt;85%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {[
               { label: 'Skenario A (Baseline)', rec: recA, color: 'border-slate-200 bg-slate-50' },

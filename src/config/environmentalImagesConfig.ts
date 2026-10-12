@@ -1,23 +1,34 @@
-// Curated high-aesthetic Unsplash environmental & health photography with high resilience
+import karhutlaHazeImg from '../assets/karhutla_haze.png';
+import personMaskImg from '../assets/person_mask.png';
+import respiratoryHealthImg from '../assets/respiratory_health.png';
+import indoorCleanAirImg from '../assets/indoor_clean_air.png';
+
+// Curated high-aesthetic environmental & health photography (Local High-Res Assets)
 export const ENVIRONMENTAL_IMAGES = {
   // Karhutla / Peatland wildfire & smoke
-  wildfirePeatland: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
-  smokeSettlement: 'https://images.unsplash.com/photo-1611273426858-450d8e3c9fce?auto=format&fit=crop&w=1200&q=80',
+  wildfirePeatland: karhutlaHazeImg,
+  smokeSettlement: karhutlaHazeImg,
   
   // Haze / Smog city vs clean sky
-  hazyCity: 'https://images.unsplash.com/photo-1534088568595-a066f410bcda?auto=format&fit=crop&w=1000&q=80',
+  hazyCity: karhutlaHazeImg,
   cleanLandscape: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
   
   // Human context & protection
-  personMaskOutdoor: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&w=1000&q=80',
+  personMaskOutdoor: personMaskImg,
   vulnerableChildren: 'https://images.unsplash.com/photo-1472162072942-cd5147eb3902?auto=format&fit=crop&w=1000&q=80',
   elderlyOutdoor: 'https://images.unsplash.com/photo-1516307365426-bea591f05011?auto=format&fit=crop&w=1000&q=80',
   outdoorWorker: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=80',
   
   // Protection & Indoor Clean Air
-  cleanIndoorRoom: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80',
-  airPurifierFiltration: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=1000&q=80',
+  cleanIndoorRoom: indoorCleanAirImg,
+  airPurifierFiltration: indoorCleanAirImg,
+  
+  // Medical & Respiratory Health
+  respiratoryHealth: respiratoryHealthImg,
 };
+
+// Export individual direct assets for convenient imports
+export { karhutlaHazeImg, personMaskImg, respiratoryHealthImg, indoorCleanAirImg };
 
 // Fallback high-aesthetic SVG Data URIs to guarantee zero broken images offline or on CDN block
 export const FALLBACK_SVGS: Record<string, string> = {
@@ -27,3 +38,4 @@ export const FALLBACK_SVGS: Record<string, string> = {
   mask: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><defs><linearGradient id="mg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23065f46"/><stop offset="100%" stop-color="%230f172a"/></linearGradient></defs><rect width="800" height="500" fill="url(%23mg)"/><text x="400" y="240" fill="%23a7f3d0" font-size="22" font-weight="bold" font-family="sans-serif" text-anchor="middle">Proteksi Pernapasan &amp; Masker</text><text x="400" y="270" fill="%23d1fae5" font-size="14" font-family="sans-serif" text-anchor="middle">Respirator N95 / KF94 Efisiensi Tinggi</text></svg>`,
   room: `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500"><defs><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23047857"/><stop offset="100%" stop-color="%231e293b"/></linearGradient></defs><rect width="800" height="500" fill="url(%23rg)"/><text x="400" y="240" fill="%23ecfdf5" font-size="22" font-weight="bold" font-family="sans-serif" text-anchor="middle">Ruang Bersih &amp; Filtrasi Udara</text><text x="400" y="270" fill="%23a7f3d0" font-size="14" font-family="sans-serif" text-anchor="middle">Isolasi Ruang dan Pemurni Udara HEPA</text></svg>`,
 };
+

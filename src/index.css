@@ -35,3 +35,61 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(239, 68, 68, 0.4), 0 0 30px rgba(249, 115, 22, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(239, 68, 68, 0.7), 0 0 45px rgba(249, 115, 22, 0.4);
+  }
+}
+
+@keyframes pulseGlowEmerald {
+  0%, 100% {
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(16, 185, 129, 0.65);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes smokeDrift {
+  0% {
+    transform: scale(1) translateX(0) translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.04) translateX(12px) translateY(-8px);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(1) translateX(0) translateY(0);
+    opacity: 0.85;
+  }
+}
+
+.animate-pulseGlow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+.animate-pulseGlowEmerald {
+  animation: pulseGlowEmerald 2.5s infinite ease-in-out;
+}
+
+.animate-subtleFloat {
+  animation: subtleFloat 4s infinite ease-in-out;
+}
+
+.animate-smokeDrift {
+  animation: smokeDrift 14s infinite ease-in-out alternate;
+}

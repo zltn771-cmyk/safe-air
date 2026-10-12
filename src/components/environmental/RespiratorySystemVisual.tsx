@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Activity, ShieldCheck, Info, Zap } from 'lucide-react';
+import { Activity, ShieldCheck, Info, Zap, Sparkles } from 'lucide-react';
+import { respiratoryHealthImg } from '../../config/environmentalImagesConfig';
 
 export const RespiratorySystemVisual: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'scale' | 'pathway'>('pathway');
@@ -194,7 +195,7 @@ export const RespiratorySystemVisual: React.FC = () => {
                 <button
                   key={z.id}
                   onClick={() => setSelectedZone(z.id)}
-                  className={`flex-1 py-1 px-1.5 rounded-lg text-[10px] font-bold transition-all text-center ${
+                  className={`flex-1 py-1 px-1.5 rounded-lg text-[10px] font-bold transition-all text-center cursor-pointer ${
                     selectedZone === z.id
                       ? 'bg-white text-slate-900 shadow-xs'
                       : 'bg-slate-800/80 text-slate-400 hover:text-white'
@@ -203,6 +204,23 @@ export const RespiratorySystemVisual: React.FC = () => {
                   Zona {z.id + 1}
                 </button>
               ))}
+            </div>
+
+            {/* Visual Photography Accent */}
+            <div className="mt-3 w-full rounded-xl overflow-hidden border border-slate-700/80 bg-slate-900 relative group">
+              <div className="h-24 overflow-hidden relative">
+                <img
+                  src={respiratoryHealthImg}
+                  alt="Perisai Kesehatan Paru"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-85"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex items-end p-2">
+                  <span className="text-[10px] font-bold text-teal-300 flex items-center gap-1">
+                    <Sparkles className="w-3 h-3 text-teal-400" />
+                    <span>Visualisasi Epitel &amp; Perisai Paru</span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
