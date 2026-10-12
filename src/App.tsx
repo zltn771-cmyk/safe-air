@@ -84,7 +84,7 @@ export function App() {
         modelVersion: riskResult.modelVersion,
       });
     }
-  }, [riskResult]);
+  }, [riskResult, airQualityData.pm25, userProfile, userActivity]);
 
   const recommendationResult = useMemo(() => {
     return generatePersonalRecommendation({

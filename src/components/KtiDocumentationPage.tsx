@@ -18,9 +18,9 @@ export const KtiDocumentationPage: React.FC = () => {
 
     const testRows = tests.map((t: any) =>
       `<tr>
-        <td style="border:1px solid #ddd;padding:6px;font-family:monospace">${t.testId}</td>
+        <td style="border:1px solid #ddd;padding:6px;font-family:monospace;font-weight:bold">${t.id}</td>
         <td style="border:1px solid #ddd;padding:6px">${t.variableTested}</td>
-        <td style="border:1px solid #ddd;padding:6px">${t.scenario}</td>
+        <td style="border:1px solid #ddd;padding:6px">${t.name}</td>
         <td style="border:1px solid #ddd;padding:6px">${t.expectedBehavior}</td>
         <td style="border:1px solid #ddd;padding:6px">${t.actualResult}</td>
         <td style="border:1px solid #ddd;padding:6px;font-weight:bold;color:${t.status === 'PASS' ? 'green' : 'red'}">${t.status}</td>
@@ -214,9 +214,9 @@ export const KtiDocumentationPage: React.FC = () => {
             <tbody>
               {tests.map((t: any, i: number) => (
                 <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                  <td className="border border-slate-200 px-2 py-1 font-mono">{t.testId}</td>
-                  <td className="border border-slate-200 px-2 py-1">{t.variableTested}</td>
-                  <td className="border border-slate-200 px-2 py-1">{t.scenario}</td>
+                  <td className="border border-slate-200 px-2 py-1 font-mono font-bold text-slate-900">{t.id}</td>
+                  <td className="border border-slate-200 px-2 py-1 font-medium">{t.variableTested}</td>
+                  <td className="border border-slate-200 px-2 py-1 font-medium text-slate-800">{t.name}</td>
                   <td className="border border-slate-200 px-2 py-1">{t.expectedBehavior}</td>
                   <td className="border border-slate-200 px-2 py-1">{t.actualResult}</td>
                   <td className="border border-slate-200 px-2 py-1">

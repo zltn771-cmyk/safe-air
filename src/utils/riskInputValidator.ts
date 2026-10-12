@@ -12,10 +12,19 @@ export const validateRiskInput = (
   activity: ExposureActivity | null
 ): ValidationResult => {
   // 1. PM2.5 Validation
-  if (pm25 === null || pm25 === undefined || Number.isNaN(pm25)) {
-    return { isValid: false, errorMessage: 'Data PM2,5 tidak boleh kosong atau NaN.' };
+  if (
+    pm25 === null ||
+    pm25 === undefined ||
+    typeof pm25 !== 'number' ||
+    !Number.isFinite(pm25) ||
+    Number.isNaN(pm25)
+  ) {
+    return {
+      isValid: false,
+      errorMessage: 'Data PM2,5 tidak valid (harus berupa angka berhingga dan tidak boleh kosong, NaN, atau Infinity).',
+    };
   }
-  if (typeof pm25 !== 'number' || pm25 < 0) {
+  if (pm25 < 0) {
     return { isValid: false, errorMessage: 'Data PM2,5 tidak valid (tidak boleh negatif).' };
   }
 

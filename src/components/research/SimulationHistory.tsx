@@ -48,23 +48,25 @@ export const SimulationHistory: React.FC = () => {
 
     const rows: string[] = [headers.join(',')];
 
+    const escapeCell = (val: unknown) => `"${String(val ?? '').replace(/"/g, '""')}"`;
+
     records.forEach(rec => {
       rec.scenarios.forEach(sc => {
         const row = [
-          `"${rec.id}"`,
-          `"${rec.timestamp}"`,
-          `"${rec.modelVersion}"`,
-          `"${sc.scenarioName}"`,
+          escapeCell(rec.id),
+          escapeCell(rec.timestamp),
+          escapeCell(rec.modelVersion),
+          escapeCell(sc.scenarioName),
           sc.pm25,
-          `"${sc.userGroup}"`,
-          `"${sc.healthConditions.join('; ')}"`,
-          `"${sc.activityType}"`,
-          `"${sc.duration}"`,
+          escapeCell(sc.userGroup),
+          escapeCell(sc.healthConditions.join('; ')),
+          escapeCell(sc.activityType),
+          escapeCell(sc.duration),
           sc.pm25BaseRisk,
           sc.rawScore,
           sc.finalScore,
-          `"${sc.riskLevel}"`,
-          `"${sc.calculatedAt}"`
+          escapeCell(sc.riskLevel),
+          escapeCell(sc.calculatedAt)
         ];
         rows.push(row.join(','));
       });

@@ -1,4 +1,6 @@
 import { runScenario } from '../utils/scenarioRunner';
+import { validateRiskInput } from '../utils/riskInputValidator';
+import { calculateAirRisk } from '../utils/riskEngine';
 import type { SimulationScenario, ScenarioResult } from '../types/researchMode';
 import type {
   EvidenceTestResult,
@@ -326,6 +328,53 @@ export function runAllEvidenceTests(): {
     createdAt: NOW_STR(),
     modelVersion: MODEL_VERSION,
     explanationNote: 'Setiap nilai skor akhir dapat ditelusuri kembali ke faktor kontributor spesifiknya.',
+  });
+
+  // ==========================================
+  // TEST 09 — Input Validation & Error Handling
+  // ==========================================
+  const valNegative = validateRiskInput(-15, null, null);
+  const valNaN = validateRiskInput(NaN, null, null);
+  const valInf = validateRiskInput(Infinity, null, null);
+  const t09Pass = !valNegative.isValid && !valNaN.isValid && !valInf.isValid;
+
+  testMatrix.push({
+    id: 'T09',
+    name: 'Uji Validasi Input & Penolakan Data Rusak (Input Validation)',
+    variableTested: 'Validasi Angka & Tipe Parameter',
+    scenarios: [],
+    expectedBehavior: 'Semua input tidak valid (negatif, NaN, Infinity) ditolak (isValid == false)',
+    actualResult: `Negatif ditolak: ${!valNegative.isValid ? 'PASS' : 'FAIL'} | NaN ditolak: ${!valNaN.isValid ? 'PASS' : 'FAIL'} | Infinity ditolak: ${!valInf.isValid ? 'PASS' : 'FAIL'}`,
+    status: t09Pass ? 'PASS' : 'FAIL',
+    createdAt: NOW_STR(),
+    modelVersion: MODEL_VERSION,
+    explanationNote: 'Fungsi validateRiskInput() secara konsisten menolak data ekstrem yang tidak valid tanpa menghasilkan kalkulasi risiko palsu.',
+  });
+
+  // ==========================================
+  // TEST 10 — Threshold Continuity & Monotonicity
+  // ==========================================
+  const band1 = calculateAirRisk(10, null, null);
+  const band2 = calculateAirRisk(30, null, null);
+  const band3 = calculateAirRisk(100, null, null);
+  const band4 = calculateAirRisk(200, null, null);
+  const band5 = calculateAirRisk(350, null, null);
+  const t10Pass = band1.score <= band2.score &&
+                  band2.score <= band3.score &&
+                  band3.score <= band4.score &&
+                  band4.score <= band5.score;
+
+  testMatrix.push({
+    id: 'T10',
+    name: 'Uji Kontinuitas Ambang Batas PM2,5 (Threshold Monotonicity)',
+    variableTested: 'Spektrum Ambang Batas Polusi',
+    scenarios: [],
+    expectedBehavior: 'Score(10) ≤ Score(30) ≤ Score(100) ≤ Score(200) ≤ Score(350)',
+    actualResult: `Skor ${band1.score} ≤ ${band2.score} ≤ ${band3.score} ≤ ${band4.score} ≤ ${band5.score}. Monotonik: ${t10Pass ? 'PASS' : 'FAIL'}`,
+    status: t10Pass ? 'PASS' : 'FAIL',
+    createdAt: NOW_STR(),
+    modelVersion: MODEL_VERSION,
+    explanationNote: 'Ambang batas PM2,5 terdefinisi tanpa celah dan menghasilkan kenaikan skor dasar secara konsisten.',
   });
 
   // ==========================================

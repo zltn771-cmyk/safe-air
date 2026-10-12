@@ -20,6 +20,8 @@ export const KTIReportModal: React.FC<KTIReportModalProps> = ({
   controlledSensitivity,
   demoScenarios,
 }) => {
+  const reportDate = React.useMemo(() => new Date().toLocaleString('id-ID'), []);
+
   if (!isOpen) return null;
 
   const handlePrint = () => {
@@ -64,7 +66,7 @@ export const KTIReportModal: React.FC<KTIReportModalProps> = ({
               Sistem Adaptif untuk Evaluasi dan Perlindungan Risiko Kesehatan akibat Polusi Udara
             </p>
             <div className="text-[11px] font-mono text-slate-500 pt-1">
-              Tanggal Laporan: {new Date().toLocaleString('id-ID')} | Model Version: <strong className="text-slate-800">0.1-prototype</strong>
+              Tanggal Laporan: {reportDate} | Model Version: <strong className="text-slate-800">0.1-prototype</strong>
             </div>
           </div>
 

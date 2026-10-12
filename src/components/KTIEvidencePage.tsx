@@ -17,6 +17,7 @@ export const KTIEvidencePage: React.FC = () => {
 
   // Execute dynamic test suite
   const testResults = useMemo(() => {
+    void testRunCount;
     return runAllEvidenceTests();
   }, [testRunCount]);
 
