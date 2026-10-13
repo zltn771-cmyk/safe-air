@@ -34,6 +34,7 @@ import { CleanVsHazyComparison } from './components/environmental/CleanVsHazyCom
 import { RespiratorySystemVisual } from './components/environmental/RespiratorySystemVisual';
 import { HourlyTrendChart } from './components/environmental/HourlyTrendChart';
 import { EducationalStorytelling } from './components/environmental/EducationalStorytelling';
+import { ImpactPhotoStrip } from './components/environmental/ImpactPhotoStrip';
 import { Shield, Sparkles, AlertCircle, Laptop, Smartphone, HeartPulse } from 'lucide-react';
 
 export function App() {
@@ -347,6 +348,9 @@ export function App() {
               <div id="educational-section" className="space-y-4 pt-6 border-t border-slate-200">
                 <EducationalStorytelling />
               </div>
+
+              {/* Impact Photo Strip — before footer */}
+              <ImpactPhotoStrip />
 
               {/* Modern Tech Scientific Footer */}
               <footer className="mt-12 pt-8 border-t border-slate-200 text-slate-500 text-xs">

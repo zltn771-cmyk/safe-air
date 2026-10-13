@@ -24,7 +24,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           src={ENVIRONMENTAL_IMAGES.smokeSettlement}
           alt="Dokumentasi Kabut Asap Karhutla"
           fallbackType="wildfire"
-          className="w-full h-full scale-105 filter brightness-60 contrast-110 saturate-125"
+          className="w-full h-full scale-110 filter brightness-50 contrast-110 saturate-125 animate-smokeDrift"
         />
         {/* Deep cinematic gradients: Forest emerald, charcoal, and warm amber smoke glow */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-transparent" />
@@ -65,9 +65,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Right Column: Dynamic Photographic Glassmorphism Card */}
           <div className="hidden lg:block lg:col-span-5 relative">
             <div className="relative rounded-3xl p-3 bg-slate-900/70 border border-slate-700/80 backdrop-blur-xl shadow-2xl animate-subtleFloat overflow-hidden">
-              <div className="grid grid-cols-2 gap-2.5">
-                {/* Photo 1: N95 Mask */}
-                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-36 bg-black group">
+              <div className="grid grid-cols-2 gap-2">
+                {/* Photo 1: Karhutla */}
+                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-28 bg-black group">
+                  <img
+                    src={ENVIRONMENTAL_IMAGES.hazyCity}
+                    alt="Kabut Asap Karhutla"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
+                    <span className="text-[10px] font-bold text-rose-300 flex items-center gap-1">
+                      <Flame className="w-3 h-3 text-rose-400" />
+                      <span>Asap Karhutla</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Photo 2: N95 Mask */}
+                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-28 bg-black group">
                   <img
                     src={ENVIRONMENTAL_IMAGES.personMaskOutdoor}
                     alt="Warga Bermasker N95"
@@ -76,13 +91,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
                     <span className="text-[10px] font-bold text-amber-300 flex items-center gap-1">
                       <Shield className="w-3 h-3 text-amber-400" />
-                      <span>Proteksi Respirator</span>
+                      <span>Proteksi N95</span>
                     </span>
                   </div>
                 </div>
 
-                {/* Photo 2: Respiratory Health Shield */}
-                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-36 bg-black group">
+                {/* Photo 3: Respiratory Health Shield */}
+                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-28 bg-black group">
                   <img
                     src={ENVIRONMENTAL_IMAGES.respiratoryHealth}
                     alt="Kesehatan Paru & Perisai Biologis"
@@ -91,19 +106,34 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
                     <span className="text-[10px] font-bold text-teal-300 flex items-center gap-1">
                       <HeartPulse className="w-3 h-3 text-teal-400" />
-                      <span>Pertahanan Alveolar</span>
+                      <span>Ketahanan Paru</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Photo 4: Clean Indoor Room */}
+                <div className="rounded-2xl overflow-hidden border border-slate-700/80 relative h-28 bg-black group">
+                  <img
+                    src={ENVIRONMENTAL_IMAGES.cleanIndoorRoom}
+                    alt="Ruang Bersih HEPA"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-2">
+                    <span className="text-[10px] font-bold text-emerald-300 flex items-center gap-1">
+                      <Wind className="w-3 h-3 text-emerald-400" />
+                      <span>Ruang Bersih</span>
                     </span>
                   </div>
                 </div>
               </div>
 
               {/* Status Banner in Card */}
-              <div className="mt-2.5 px-3 py-2 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
+              <div className="mt-2 px-3 py-2 rounded-xl bg-slate-950/80 border border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
                 <span className="flex items-center gap-1.5 font-bold text-emerald-400">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                  <span>Konteks Lapangan Aktif</span>
+                  <span>4 Pilar Kesehatan Udara SAFE-AIR</span>
                 </span>
-                <span className="text-slate-400 font-mono text-[10px]">Sumatra Haze Episode</span>
+                <span className="text-slate-400 font-mono text-[10px]">KTI 2026</span>
               </div>
             </div>
           </div>

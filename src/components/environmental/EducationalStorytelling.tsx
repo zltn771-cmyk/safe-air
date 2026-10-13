@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BookOpen, Users, Timer, ShieldCheck, Flame, ChevronRight, Sparkles } from 'lucide-react';
-import { SafeImage, ENVIRONMENTAL_IMAGES } from './EnvironmentalImages';
+import { karhutlaHazeImg, personMaskImg, respiratoryHealthImg, indoorCleanAirImg } from '../../config/environmentalImagesConfig';
+
 
 export const EducationalStorytelling: React.FC = () => {
   const [activeChapterIndex, setActiveChapterIndex] = useState<number>(0);
@@ -11,7 +12,7 @@ export const EducationalStorytelling: React.FC = () => {
       badge: 'BAB 01',
       title: 'Apa yang Sebenarnya Kita Hirup?',
       subtitle: 'Kimia & Aerosol di Balik Asap Kebakaran Lahan Gambut',
-      image: ENVIRONMENTAL_IMAGES.wildfirePeatland,
+      image: karhutlaHazeImg,
       fallbackType: 'wildfire' as const,
       icon: Flame,
       keyPoint: 'Asap kebakaran gambut bukan sekadar abu biasa, melainkan suspensi aerosol ultra-halus kaya karbon organik.',
@@ -26,7 +27,7 @@ Kondisi pembakaran tidak sempurna ini menghasilkan fraksi partikel halus PM2.5 y
       badge: 'BAB 02',
       title: 'Paparan Tidak Sama untuk Semua Orang',
       subtitle: 'Variabilitas Kerentanan Biologis & Fisiologis Tubuh Manusia',
-      image: ENVIRONMENTAL_IMAGES.vulnerableChildren,
+      image: personMaskImg,
       fallbackType: 'mask' as const,
       icon: Users,
       keyPoint: 'Dosis paparan udara yang sama dapat memberikan dampak fisiologis yang berbeda secara drastis.',
@@ -43,7 +44,7 @@ Kondisi pembakaran tidak sempurna ini menghasilkan fraksi partikel halus PM2.5 y
       badge: 'BAB 03',
       title: 'Aktivitas dan Durasi Mempercepat Akumulasi',
       subtitle: 'Mengapa Dosis Efektif Dihitung dari Ventilasi Paru Menit (VE)',
-      image: ENVIRONMENTAL_IMAGES.outdoorWorker,
+      image: respiratoryHealthImg,
       fallbackType: 'haze' as const,
       icon: Timer,
       keyPoint: 'Berlari 30 menit di luar ruangan dapat menyerap partikulat setara berdiam seharian di dalam ruang.',
@@ -60,7 +61,7 @@ Saat seseorang melakukan aktivitas berat di luar ruangan (seperti olahraga kardi
       badge: 'BAB 04',
       title: 'Langkah Adaptasi dan Perlindungan Aktif',
       subtitle: 'Hierarki Pengendalian Paparan & Solusi Mitigasi Riil',
-      image: ENVIRONMENTAL_IMAGES.cleanIndoorRoom,
+      image: indoorCleanAirImg,
       fallbackType: 'room' as const,
       icon: ShieldCheck,
       keyPoint: 'Kombinasi isolasi ruangan tertutup dan respirator berstandar memberikan reduksi paparan hingga >90%.',
@@ -137,11 +138,10 @@ Saat seseorang melakukan aktivitas berat di luar ruangan (seperti olahraga kardi
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center bg-slate-50/70 p-5 sm:p-6 rounded-2xl border border-slate-200/80">
         {/* Photo Container */}
         <div className="lg:col-span-5 relative h-64 sm:h-80 rounded-2xl overflow-hidden shadow-md border border-slate-300/80 group">
-          <SafeImage
+          <img
             src={current.image}
             alt={current.title}
-            fallbackType={current.fallbackType}
-            className="w-full h-full transform group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/30 to-transparent" />
 
