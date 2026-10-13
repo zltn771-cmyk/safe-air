@@ -230,7 +230,7 @@ export function App() {
 
           {/* HOME TAB */}
           {activeTab === 'home' && (
-            <main className="p-4 sm:p-6 lg:p-8 space-y-8 animate-fadeIn">
+            <main className="p-3 sm:p-5 lg:p-8 space-y-4 sm:space-y-6 lg:space-y-8 animate-fadeIn">
               {/* Immersive Editorial Hero Section */}
               <HeroSection
                 currentPm25={airQualityData.pm25}
@@ -238,6 +238,29 @@ export function App() {
                 onExploreAirQuality={() => scrollToSection('air-quality-section')}
                 onLearnHowItWorks={() => scrollToSection('educational-section')}
               />
+
+              {/* Mobile-only: Quick Access Horizontal Strip */}
+              <div className="sm:hidden -mx-3 px-3 overflow-x-auto no-scrollbar">
+                <div className="flex gap-2 pb-1 w-max">
+                  {[
+                    { label: '📊 Kualitas Udara', id: 'air-quality-section', color: 'bg-indigo-950 text-indigo-200 border-indigo-800' },
+                    { label: '🔬 Galeri Karhutla', id: 'gallery-section', color: 'bg-rose-950 text-rose-200 border-rose-800' },
+                    { label: '🫁 Sistem Paru', id: 'respiratory-section', color: 'bg-teal-950 text-teal-200 border-teal-800' },
+                    { label: '📖 Edukasi', id: 'educational-section', color: 'bg-emerald-950 text-emerald-200 border-emerald-800' },
+                  ].map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => {
+                        const el = document.getElementById(item.id);
+                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      className={`flex-none px-3 py-1.5 rounded-xl text-[11px] font-bold border whitespace-nowrap transition-all active:scale-95 ${item.color}`}
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
               {/* Assessment Section Anchor */}
               <div id="assessment-section" className="space-y-4">
@@ -328,28 +351,28 @@ export function App() {
                 </div>
               </div>
 
-              {/* Field Crisis & Mitigation Photography Showcase Section */}
-              <div id="gallery-section" className="space-y-4 pt-6 border-t border-slate-200">
+              {/* Field Crisis & Mitigation Photography — compact on mobile */}
+              <div id="gallery-section" className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-slate-200">
                 <CrisisPhotoGallery />
               </div>
 
-              {/* Environmental Air Quality Section (Clean vs Hazy & 24h Trend) */}
-              <div id="air-quality-section" className="space-y-4 pt-6 border-t border-slate-200">
+              {/* Environmental Air Quality — compact on mobile */}
+              <div id="air-quality-section" className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-slate-200">
                 <CleanVsHazyComparison />
                 <HourlyTrendChart />
               </div>
 
-              {/* Respiratory Health & Particulate Dynamics Section */}
-              <div id="respiratory-section" className="space-y-4 pt-6 border-t border-slate-200">
+              {/* Respiratory Health — compact on mobile */}
+              <div id="respiratory-section" className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-slate-200">
                 <RespiratorySystemVisual />
               </div>
 
-              {/* Educational Storytelling in 4 Chapters */}
-              <div id="educational-section" className="space-y-4 pt-6 border-t border-slate-200">
+              {/* Educational Storytelling — compact on mobile */}
+              <div id="educational-section" className="space-y-3 sm:space-y-4 pt-4 sm:pt-6 border-t border-slate-200">
                 <EducationalStorytelling />
               </div>
 
-              {/* Impact Photo Strip — before footer */}
+              {/* Impact Photo Strip */}
               <ImpactPhotoStrip />
 
               {/* Modern Tech Scientific Footer */}
