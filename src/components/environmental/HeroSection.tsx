@@ -57,8 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
 
             <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
-              SAFE-AIR membantu mengeksplorasi hubungan antara kualitas udara, karakteristik pengguna,
-              aktivitas, dan durasi paparan melalui estimasi risiko berbasis prototype penelitian.
+              Pastikan udara yang dihirup aman. SAFE-AIR menganalisis risiko paparan udara berdasarkan profil, durasi, dan aktivitas harianmu untuk langkah perlindungan yang tepat.
             </p>
           </div>
 
